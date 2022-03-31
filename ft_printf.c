@@ -6,7 +6,7 @@
 /*   By: mide-sou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:53:47 by mide-sou          #+#    #+#             */
-/*   Updated: 2022/03/29 15:59:16 by mide-sou         ###   ########.fr       */
+/*   Updated: 2022/03/31 12:05:06 by mide-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static int	type_arg(va_list args, const char *s, int i)
 	else if (s[i + 1] == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (s[i + 1] == 'p')
-		return (ft_putstr("0x") + ft_w_nu(va_arg(args, t_llu), 16, 0, 'x'));
+		return (ft_putstr("0x") + write_nu(va_arg(args, t_llu), 16, 0, 'x'));
 	else if (s[i + 1] == 'd' || (s[i + 1] == 'i'))
 		return (ft_putnbr(va_arg(args, int), 0));
 	else if (s[i + 1] == 'u')
-		return (ft_w_nu((t_llu)va_arg(args, unsigned int), 10, 0, 'x'));
+		return (write_nu((t_llu)va_arg(args, unsigned int), 10, 0, 'x'));
 	else if (s[i + 1] == 'x')
-		return (ft_w_nu((t_llu)va_arg(args, unsigned int), 16, 0, 'x'));
+		return (write_nu((t_llu)va_arg(args, unsigned int), 16, 0, 'x'));
 	else if (s[i + 1] == 'X')
-		return (ft_w_nu((t_llu)va_arg(args, unsigned int), 16, 0, 'X'));
+		return (write_nu((t_llu)va_arg(args, unsigned int), 16, 0, 'X'));
 	else if (s[i + 1] == '%')
 		return (ft_putchar('%'));
 	return (0);

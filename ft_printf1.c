@@ -6,7 +6,7 @@
 /*   By: mide-sou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:06:00 by mide-sou          #+#    #+#             */
-/*   Updated: 2022/03/29 15:59:51 by mide-sou         ###   ########.fr       */
+/*   Updated: 2022/03/31 12:04:35 by mide-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,18 @@ int	ft_putnbr(int n, int num)
 	return (num);
 }
 
-int	ft_w_nu(t_llu n, t_llu base, int num, char s)
+int	write_nu(t_llu n, t_llu base, int num, char s)
 {
 	if (s == 'x')
 	{
 		if (n > base - 1)
-			num += ft_w_nu(n / base, base, num, s);
+			num += write_nu(n / base, base, num, s);
 		write(1, &"0123456789abcdef"[n % base], 1);
 	}
 	else if (s == 'X')
 	{
 		if (n > base - 1)
-			num += ft_w_nu(n / base, base, num, s);
+			num += write_nu(n / base, base, num, s);
 		write(1, &"0123456789ABCDEF"[n % base], 1);
 	}
 	return (++num);
